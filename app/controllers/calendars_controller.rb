@@ -15,7 +15,7 @@ class CalendarsController < ApplicationController
   private
 
   def plan_params
-    params.require(:plan).permit(:date, :plan)
+    params.require(:calendars).permit(:date, :plan)
   end
 
   def get_week
@@ -26,7 +26,6 @@ class CalendarsController < ApplicationController
     # 例)　今日が2月1日の場合・・・ Date.today.day => 1日
 
     @week_days = []
-    @yobi_days = @todays_date.wday
 
     @plans = Plan.where(date: @todays_date..@todays_date + 7)
 
